@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\PlacaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,4 +33,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/placas', function () {
+        return Inertia::render('Placas');
+    })->name('placas');
+
+    Route::get('/cards', [PlacaController::class, 'cards'])->name('cards');
 });
